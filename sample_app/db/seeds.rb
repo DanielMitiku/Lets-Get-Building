@@ -26,3 +26,9 @@ User.create!(name:  name,
       activated_at: Time.zone.now)
 
 end
+
+users = User.order(:created_at).take(6)
+
+100.times do
+    users.each { |user| user.microposts.create!(content: "This is a test post to test how the test goes by using test written by hand to show you what I really mean.") }
+end
